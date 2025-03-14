@@ -6,6 +6,14 @@ A comprehensive simulation model for analyzing and projecting development trends
 
 This project implements a multi-system simulation model for Bangladesh's development trajectory. The model integrates five interconnected systems to capture the complex interactions between different aspects of development.
 
+## Recent Updates
+
+- **Enhanced Cross-System Integration**: Improved the `SystemIntegrator` class to facilitate robust interactions between different subsystems
+- **Flexible System Execution**: Added support for dynamic system scheduling and step parameters
+- **Robust Parameter Validation**: Implemented comprehensive validation framework for configuration parameters
+- **Improved Error Handling**: Enhanced error reporting and graceful degradation when components fail
+- **Memory Optimization**: Reduced memory usage for large simulations through efficient data structures
+
 ## Key Features
 
 - **Integrated Systems Model**: Combines economic, demographic, environmental, infrastructure, and governance systems
@@ -31,11 +39,40 @@ This project implements a multi-system simulation model for Bangladesh's develop
   - `validation.py`: Model validation framework
   - `sensitivity_analysis.py`: Sensitivity analysis tools 
   - `data_loader.py`: Data loading utilities
-  - `html_report_generator.py`: Report generation tools
+  - `system_integrator.py`: Cross-system integration utilities
+  - `result_processor.py`: Simulation result processing
 - `visualization/`: Visualization tools and geographic mapping functionality
 - `config/`: Configuration settings for simulations
+- `tests/`: Unit and integration tests
+- `docs/`: Documentation and model specifications
 - `data/`: Input data for the simulation models
 - `results/`: Output directory for simulation results and reports
+
+## Data Files
+
+**Note:** Large data files are not included in this repository due to GitHub size limitations. These include:
+
+- Geographic shapefiles (*.shp)
+- GIS database files (*.gdb.zip)
+- Large datasets (*.zip)
+
+### Obtaining Data Files
+
+To run the simulation with complete data, you'll need to download these files separately:
+
+1. **Bangladesh Admin Boundaries**: 
+   - Download from [Humanitarian Data Exchange](https://data.humdata.org/dataset/bangladesh-administrative-boundaries)
+   - Place .shp files in `data/shapefiles/bgd_adm_bbs_20201113_SHP/`
+
+2. **Bangladesh GIS Database**:
+   - Contact the research team at [contact@example.com](mailto:contact@example.com)
+   - Place downloaded files in `data/` directory
+
+3. **Economic and Demographic Data**:
+   - Download from [Bangladesh Bureau of Statistics](https://bbs.gov.bd/site/page/db69b9c4-7687-4c96-bdb6-1d71d8b414ef/-)
+   - Extract to `data/` directory
+
+The simulation will look for these files in their respective directories. If not found, it will use built-in fallback data that's less detailed but sufficient for basic simulations.
 
 ## Getting Started
 
@@ -44,22 +81,24 @@ This project implements a multi-system simulation model for Bangladesh's develop
    pip install -r requirements.txt
    ```
 
-2. Run a basic simulation:
+2. Download the data files as described in the [Data Files](#data-files) section.
+
+3. Run a basic simulation:
    ```
    python run_simulation.py
    ```
 
-3. Run a simulation with policy interventions:
+4. Run a simulation with policy interventions:
    ```
    python run_simulation.py --policy-scenario=education_investment
    ```
 
-4. Run a sensitivity analysis:
+5. Run a sensitivity analysis:
    ```
    python run_simulation.py --sensitivity-analysis
    ```
 
-5. View the generated HTML report in the `results/[simulation_id]/` directory
+6. View the generated HTML report in the `results/[simulation_id]/` directory
 
 ## Policy Scenarios
 
