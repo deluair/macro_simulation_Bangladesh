@@ -1,0 +1,92 @@
+# Core packages
+numpy==1.24.3
+pandas==2.0.2
+matplotlib==3.7.1
+pyyaml==6.0.1
+scipy==1.10.1
+seaborn==0.12.2
+tqdm==4.65.0
+
+# Geospatial packages
+geopandas==0.13.2
+folium==0.14.0
+mapclassify==2.5.0
+geopy==2.3.0
+pyshp==2.3.1
+pyproj==3.6.0
+shapely==2.0.1
+
+# Statistics and modeling
+scikit-learn==1.2.2
+statsmodels==0.14.0
+SALib==1.4.7  # Added for Sobol and advanced sensitivity analysis
+pmdarima==2.0.3  # For ARIMA models in time series analysis
+prophet==1.1.4  # For time series forecasting
+darts==0.24.0  # Time series forecasting library
+
+# Visualization
+plotly==5.14.1
+dash==2.9.3
+dash-bootstrap-components==1.4.1
+networkx==3.1
+pydot==1.4.2
+bokeh==3.2.0
+
+# Data processing
+openpyxl==3.1.2
+xlrd==2.0.1
+tabulate==0.9.0
+beautifulsoup4==4.12.2
+lxml==4.9.2
+html5lib==1.1
+
+# Machine Learning
+tensorflow==2.12.0
+keras==2.12.0
+scikit-optimize==0.9.0  # For Bayesian optimization
+xgboost==1.7.5
+lightgbm==4.0.0
+
+# Report generation
+jinja2==3.1.2
+weasyprint==59.0
+markdown==3.4.3
+pygments==2.15.1
+pdfkit==1.0.0
+pypdf2==3.0.1
+
+# Web and API
+flask==2.3.2
+requests==2.31.0
+fastapi==0.95.2
+uvicorn==0.22.0
+aiohttp==3.8.4
+
+# Development tools
+pytest==7.3.1
+pytest-cov==4.1.0
+black==23.3.0
+flake8==6.0.0
+mypy==1.3.0
+isort==5.12.0
+pre-commit==3.3.2
+pylint==2.17.4
+
+# Uncertainty quantification and advanced analysis
+pymc==5.4.2
+arviz==0.15.1
+corner==2.2.2
+
+# Documentation
+sphinx==7.0.1
+sphinx_rtd_theme==1.2.1
+nbsphinx==0.9.2
+ipython==8.14.0
+
+# Misc utilities
+python-dateutil==2.8.2
+pytz==2023.3
+joblib==1.2.0
+click==8.1.3
+rich==13.4.1
+configparser==5.3.0

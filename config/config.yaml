@@ -1,0 +1,306 @@
+###############################################################
+# Bangladesh Integrated Socioeconomic and Environmental Simulation
+# Configuration File
+###############################################################
+
+# Simulation control parameters
+simulation:
+  start_year: 2023
+  end_year: 2033
+  time_step: 1.0
+  random_seed: 42
+  
+  # Monte Carlo simulation settings
+  monte_carlo:
+    enabled: true
+    n_runs: 100
+    parameters:
+      - name: climate_scenario
+        distribution: choice
+        values: [rcp26, rcp45, rcp85]
+        weights: [0.2, 0.5, 0.3]
+      - name: economic.gdp_growth_rate_base
+        distribution: normal
+        mean: 0.055
+        std: 0.015
+      - name: governance.corruption_index
+        distribution: uniform
+        min: 0.4
+        max: 0.7
+      - name: infrastructure.investment_level
+        distribution: triangular
+        min: 0.02
+        peak: 0.035
+        max: 0.05
+
+# Data paths
+data:
+  data_dir: "data/"
+  input_data:
+    economic: "data/economic/"
+    environmental: "data/environmental/"
+    demographic: "data/demographic/"
+    infrastructure: "data/infrastructure/"
+    governance: "data/governance/"
+  initial_conditions: "data/initial_conditions.csv"
+  validation_data: "data/validation/"
+
+# Output settings
+output:
+  output_dir: "results/"
+  save_frequency: 1
+  plot_results: true
+  generate_dashboard: true
+  export_formats: ["csv", "json"]
+  detailed_logs: true
+
+###############################################################
+# Economic System Configuration
+###############################################################
+economic:
+  start_year: 2023
+  time_step: 1.0
+  
+  # Base economic parameters
+  gdp_base: 460.0  # Billion USD
+  gdp_growth_rate_base: 0.055  # 5.5% annual growth
+  inflation_target: 0.05
+  
+  # Sectoral composition (% of GDP)
+  sectors:
+    agriculture: 0.12
+    manufacturing: 0.28
+    services: 0.53
+    technology: 0.07
+  
+  # Manufacturing subsectors
+  manufacturing_sectors:
+    garments: 0.55
+    textiles: 0.15
+    food_processing: 0.12
+    pharmaceuticals: 0.08
+    electronics: 0.05
+    other: 0.05
+  
+  # Trade parameters
+  trade:
+    export_ratio: 0.15  # Exports as % of GDP
+    import_ratio: 0.22  # Imports as % of GDP
+    major_partners: ["EU", "USA", "China", "India"]
+    
+  # Financial parameters
+  finance:
+    interest_rate: 0.09
+    exchange_rate: 105.5  # BDT per USD
+    foreign_reserves: 45.0  # Billion USD
+    government_debt_ratio: 0.38  # Debt to GDP ratio
+    
+  # Investment parameters
+  investment:
+    domestic_investment_ratio: 0.31  # % of GDP
+    foreign_investment: 2.5  # Billion USD annually
+    remittances: 22.0  # Billion USD annually
+
+###############################################################
+# Environmental System Configuration
+###############################################################
+environmental:
+  start_year: 2023
+  base_year: 2000
+  time_step: 1.0
+  
+  # Climate scenario (RCP2.6, RCP4.5, RCP8.5)
+  climate_scenario: "rcp45"
+  
+  # Initial climate parameters
+  initial_conditions:
+    temperature_anomaly: 0.8  # Degrees C above pre-industrial
+    sea_level_rise: 0.3  # Meters since 1900
+    co2_concentration: 410.0  # ppm
+    annual_rainfall: 2500.0  # mm/year
+    monsoon_intensity: 1.0  # normalized
+    
+  # Environmental quality indicators
+  environmental_quality:
+    air_quality_index: 150.0  # 0-500 scale (higher is worse)
+    water_quality_index: 65.0  # 0-100 scale (higher is better)
+    forest_coverage: 0.11  # 11% of land area
+    biodiversity_index: 0.7  # 0-1 scale
+    
+  # Environmental stress indicators
+  environmental_stress:
+    water_stress_index: 0.4  # 0-1 scale
+    land_degradation_index: 0.35  # 0-1 scale
+    salinity_intrusion: 0.2  # 0-1 scale
+    
+  # Disaster probabilities (annual)
+  disasters:
+    cyclone_probability: 0.3  # Annual probability of at least one cyclone
+    flood_probability: 0.7  # Annual probability of significant flooding
+    drought_probability: 0.2  # Annual probability of drought conditions
+    
+  # Climate adaptation
+  adaptation:
+    adaptation_investment: 0.01  # % of GDP
+    adaptation_effectiveness: 0.5  # 0-1 scale
+
+###############################################################
+# Demographic System Configuration
+###############################################################
+demographic:
+  start_year: 2023
+  time_step: 1.0
+  
+  # Population parameters
+  initial_population: 170000000  # 170 million
+  
+  # Age distribution (fraction of population)
+  age_distribution:
+    "0-14": 0.28
+    "15-24": 0.19
+    "25-54": 0.40
+    "55-64": 0.07
+    "65+": 0.06
+  
+  # Gender ratio (males per female)
+  gender_ratio: 0.98
+  
+  # Vital statistics
+  fertility_rate: 2.1  # Children per woman
+  life_expectancy: 72.5
+  infant_mortality: 0.026  # Per 1,000 live births
+  
+  # Migration parameters
+  net_international_migration_rate: -0.0003  # % of population
+  internal_migration:
+    rural_to_urban: 0.02  # % of rural population annually
+    
+  # Education and skills
+  education:
+    literacy_rate: 0.74
+    primary_enrollment: 0.98
+    secondary_enrollment: 0.67
+    tertiary_enrollment: 0.21
+    skills_distribution:
+      low: 0.6
+      medium: 0.3
+      high: 0.1
+      
+  # Urbanization
+  urbanization_rate: 0.38  # % of population in urban areas
+  urban_growth_rate: 0.035  # Annual growth rate of urban population
+  
+  # Regional population (in millions)
+  regions:
+    Dhaka: 48.0
+    Chittagong: 35.0
+    Rajshahi: 20.0
+    Khulna: 18.0
+    Barisal: 12.0
+    Sylhet: 14.0
+    Rangpur: 16.0
+    Mymensingh: 7.0
+
+###############################################################
+# Infrastructure System Configuration
+###############################################################
+infrastructure:
+  start_year: 2023
+  time_step: 1.0
+  
+  # Investment parameters
+  investment_level: 0.035  # % of GDP
+  maintenance_ratio: 0.4  # Maintenance vs. new construction
+  
+  # Transportation infrastructure
+  transportation:
+    road_density: 0.6  # km per sq km
+    road_quality: 0.5  # 0-1 scale
+    railway_coverage: 0.3  # % of territory
+    port_capacity: 0.7  # 0-1 scale (relative to need)
+    airport_capacity: 0.65  # 0-1 scale
+    
+  # Energy infrastructure
+  energy:
+    electricity_coverage: 0.92  # % of population
+    generation_capacity: 25000  # MW
+    distribution_reliability: 0.7  # 0-1 scale
+    energy_mix:
+      natural_gas: 0.52
+      coal: 0.08
+      oil: 0.25
+      hydro: 0.02
+      solar: 0.05
+      wind: 0.03
+      biomass: 0.05
+      
+  # Water infrastructure
+  water:
+    water_supply_coverage: 0.87  # % of population
+    sanitation_coverage: 0.65  # % of population
+    treatment_capacity: 0.5  # 0-1 scale
+    irrigation_coverage: 0.55  # % of arable land
+    
+  # Telecommunications
+  telecommunications:
+    mobile_coverage: 0.97  # % of population
+    internet_coverage: 0.68  # % of population
+    broadband_coverage: 0.35  # % of population
+    digital_services_adoption: 0.45  # 0-1 scale
+    
+  # Urban infrastructure
+  urban:
+    planning_quality: 0.5  # 0-1 scale
+    housing_adequacy: 0.6  # 0-1 scale
+    waste_management: 0.45  # 0-1 scale
+    public_space: 0.4  # 0-1 scale
+
+###############################################################
+# Governance System Configuration
+###############################################################
+governance:
+  start_year: 2023
+  time_step: 1.0
+  
+  # Institutional effectiveness parameters
+  institutional_effectiveness: 0.45  # 0-1 scale
+  regulatory_quality: 0.4  # 0-1 scale
+  rule_of_law: 0.35  # 0-1 scale
+  government_effectiveness: 0.4  # 0-1 scale
+  
+  # Corruption parameters
+  corruption_index: 0.65  # 0-1 scale (higher means more corrupt)
+  corruption_by_sector:
+    public_administration: 0.7
+    judiciary: 0.6
+    law_enforcement: 0.65
+    education: 0.5
+    healthcare: 0.55
+    utilities: 0.6
+    private_sector: 0.5
+    
+  # NGO and civil society parameters
+  ngo_density: 15.0  # NGOs per 100,000 people
+  ngo_effectiveness: 0.6  # 0-1 scale
+  civil_society_strength: 0.5  # 0-1 scale
+  
+  # Gender disparity parameters
+  gender_inequality_index: 0.55  # 0-1 scale
+  female_labor_participation: 0.36  # % of women in labor force
+  female_education_ratio: 0.85  # Female/male education ratio
+  women_in_parliament: 0.21  # % of parliament seats held by women
+  
+  # Political stability parameters
+  political_stability: 0.45  # 0-1 scale
+  democracy_index: 0.5  # 0-1 scale
+  voice_accountability: 0.4  # 0-1 scale
+  political_violence: 0.3  # 0-1 scale
+  
+  # Policy parameters
+  fiscal_policy: 0.5  # 0-1 scale (conservative to expansionary)
+  monetary_policy: 0.5  # 0-1 scale (tight to loose)
+  trade_policy: 0.6  # 0-1 scale (protectionist to open)
+  industrial_policy: 0.5  # 0-1 scale
+  agricultural_policy: 0.45  # 0-1 scale
+  environmental_policy: 0.4  # 0-1 scale
+  climate_policy: 0.35  # 0-1 scale
