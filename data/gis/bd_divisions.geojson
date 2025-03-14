@@ -1,0 +1,45 @@
+{
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "properties": {"division": "Dhaka", "area_km2": 20000, "population": 40000000},
+                    "geometry": {"type": "Polygon", "coordinates": [[[90.0, 23.5], [90.5, 23.5], [90.5, 24.0], [90.0, 24.0], [90.0, 23.5]]]}
+                },
+                {
+                    "type": "Feature",
+                    "properties": {"division": "Chittagong", "area_km2": 18000, "population": 30000000},
+                    "geometry": {"type": "Polygon", "coordinates": [[[91.0, 22.5], [92.0, 22.5], [92.0, 23.0], [91.0, 23.0], [91.0, 22.5]]]}
+                },
+                {
+                    "type": "Feature",
+                    "properties": {"division": "Rajshahi", "area_km2": 15000, "population": 20000000},
+                    "geometry": {"type": "Polygon", "coordinates": [[[88.5, 24.0], [89.5, 24.0], [89.5, 25.0], [88.5, 25.0], [88.5, 24.0]]]}
+                },
+                {
+                    "type": "Feature",
+                    "properties": {"division": "Khulna", "area_km2": 14000, "population": 18000000},
+                    "geometry": {"type": "Polygon", "coordinates": [[[89.0, 22.0], [90.0, 22.0], [90.0, 23.0], [89.0, 23.0], [89.0, 22.0]]]}
+                },
+                {
+                    "type": "Feature",
+                    "properties": {"division": "Barisal", "area_km2": 10000, "population": 10000000},
+                    "geometry": {"type": "Polygon", "coordinates": [[[90.0, 22.0], [91.0, 22.0], [91.0, 22.5], [90.0, 22.5], [90.0, 22.0]]]}
+                },
+                {
+                    "type": "Feature",
+                    "properties": {"division": "Sylhet", "area_km2": 12000, "population": 12000000},
+                    "geometry": {"type": "Polygon", "coordinates": [[[91.0, 24.0], [92.0, 24.0], [92.0, 25.0], [91.0, 25.0], [91.0, 24.0]]]}
+                },
+                {
+                    "type": "Feature",
+                    "properties": {"division": "Rangpur", "area_km2": 13000, "population": 15000000},
+                    "geometry": {"type": "Polygon", "coordinates": [[[89.0, 25.0], [90.0, 25.0], [90.0, 26.0], [89.0, 26.0], [89.0, 25.0]]]}
+                },
+                {
+                    "type": "Feature",
+                    "properties": {"division": "Mymensingh", "area_km2": 10500, "population": 11000000},
+                    "geometry": {"type": "Polygon", "coordinates": [[[90.0, 24.0], [91.0, 24.0], [91.0, 25.0], [90.0, 25.0], [90.0, 24.0]]]}
+                }
+            ]
+        }
