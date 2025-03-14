@@ -1,3 +1,21 @@
+# Ignore large data files
+data/bgd_adm_bbs_20201113_shp.zip
+data/bgd_adminboundaries_candidate.gdb.zip
+data/shapefiles/bgd_adm_bbs_20201113_SHP/bgd_admbnda_adm4_bbs_20201113.shp
+data/shapefiles/bgd_adm_bbs_20201113_SHP/bgd_admbndl_admALL_bbs_itos_20201113.shp
+
+# Ignore all data files with these extensions
+*.zip
+*.shp
+*.dbf
+*.prj
+*.sbn
+*.sbx
+*.shx
+*.cpg
+*.xml
+*.gdb
+
 # Python specific
 __pycache__/
 *.py[cod]
